@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>Welcome to Erik's Bar.</h1>
+        <h3>See what you can make, with what you have on hand.</h3>
+        <h3>Add a cocktail's ingredients to your shopping list in one click.</h3>
+    </div>
+    <div style="padding: 20px">
+        <a href="{% url 'allingredients' %}" class="w3-btn w3-blue">All Ingredients</a>
+        <a href="{% url 'createingredient' %}" class="w3-btn w3-blue">Create an Ingredient</a>
+        <a href="{% url 'allcocktails' %}" class="w3-btn w3-blue">All Cocktails</a>
+        <a href="{% url 'createcocktail' %}" class="w3-btn w3-blue">Create a Cocktail</a>
+        <a href="{% url 'makedrinks' %}" class="w3-btn w3-blue">Make Drinks</a>
+        <a href="{% url 'allposts' %}" class="w3-btn w3-blue">Blog</a>
+        <a href="{% url 'newpost' %}" class="w3-btn w3-blue">New Blog Post</a>
+    </div>
+
+{% endblock %}

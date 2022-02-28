@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div>
+            <h1>Search for Tags</h1>
+            <a href="{% url 'newrecipetag' recipe.pk %}" class="w3-btn w3-red">Define New Tag</a>
+        </div>
+        <div>
+            <form action="{% url 'searchrecipetag' recipe.pk %}" method="GET">
+                <label for="q">Search</label>
+                <input id="q" type="text" name="q" value="{{request.GET.q}}" placeholder="Search tags">
+                <input type="submit" name="submit" value="Search">
+            </form>
+        </div>
+        <div>
+            {% if results %}
+                {% for tag in results %}
+                    <div class="w3-card">
+                        <p>{{ tag.description }}</p>
+                        <a href="{% url 'addrecipetag' recipe.pk tag.pk %}" class="w3-btn w3-red">Add</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

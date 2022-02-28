@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>Ingredient Directory</h1>
+        {% for ingredient in ingredients %}
+            <div style="border: dimgrey 2px solid">
+                <p>Name: {{ ingredient.name }}</p>
+                <p>Aliases</p>
+                <ul>
+                    {% for alias in ingredient.aliases.all %}
+                        <li>{{ alias.alias_name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

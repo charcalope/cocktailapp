@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div>
+            <h1>{{ blog_post.title }}</h1>
+            <p>{{ blog_post.created_on.month }} {{ blog_post.created_on.day }} {{ blog_post.created_on.year }} at {{ blog_post.created_on.hour }}:{{ blog_post.created_on.minute }}</p>
+            <p>Written by {{ blog_post.written_by.username }}</p>
+            <p>{{ blog_post.content }}</p>
+        </div>
+    </div>
+{% endblock %}

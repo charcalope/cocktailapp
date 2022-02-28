@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>{{ cocktail.name }}</h1>
+        <p>{{ cocktail.description }}</p><br>
+        <p>{{ cocktail.instructions }}</p><br>
+        <a href="{% url 'editcocktail' cocktail.pk %}" class="w3-btn w3-blue">Edit Details</a>
+        <a href="{% url 'newrecipepart' cocktail.pk %}" class="w3-btn w3-blue">Add Part to Recipe</a>
+    </div>
+    <div>
+        <h1>Tags</h1>
+        <a href="{% url 'searchrecipetag' cocktail.pk %}" class="w3-btn w3-red">Add Tag</a>
+        {% for tag in cocktail.tags.all %}
+            <div class="w3-btn w3-red">
+                {{ tag.description }}
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <h1>Recipe</h1>
+        {% for recipe_part in cocktail.recipe_parts.all %}
+            <div class="w3-card" style="padding: 15px">
+                <p>{{ recipe_part }}</p>
+                {% for tag in recipe_part.tagged_ingredients.all %}
+                    <div style="background-color: orange" class="w3-btn w3-round">
+                        <p>{{ tag.name }}</p>
+                    </div>
+                {% endfor %}
+                <a href="{% url 'editparttags' recipe_part.pk %}" class="w3-btn w3-blue">Edit Part's Tags</a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div style="border-bottom: orangered 4px solid">
+            <h1>Add to Cabinet</h1>
+        </div>
+        <div>
+            <form action="{% url 'cabinetsearch' %}" method="GET">
+                <label for="q">Search</label>
+                <input id="q" type="text" name="q" value="{{request.GET.q}}" placeholder="Search posts">
+                <input type="submit" name="submit" value="Search">
+            </form>
+        </div>
+        <div>
+            {% if results %}
+                {% for ingredient in results %}
+                    <div class="w3-card">
+                        <p>{{ ingredient.name }}</p>
+                        <a href="{% url 'addtocabinet' ingredient.pk %}">Add</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

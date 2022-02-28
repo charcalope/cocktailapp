@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        {% for cocktail in page_obj %}
+            <div class="w3-card" style="padding: 15px">
+                <h4>{{ cocktail.name }}</h4>
+                <a href="{% url 'viewcocktail' cocktail.pk %}" class="w3-btn w3-red">View</a>
+            </div>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </div>
+{% endblock %}

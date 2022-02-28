@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h2>Viewing Ingredient</h2>
+        <p>{{ ingredient.name}}</p>
+        <p>Aliases</p>
+        <ul>
+            {% for alias in ingredient.aliases.all %}
+                <li>{{ alias.alias_name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

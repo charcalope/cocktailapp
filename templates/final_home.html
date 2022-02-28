@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Erik's Bar</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="w3-row">
+        <div class="w3-col s8" style="background-color: #0A464F; height: 1000px">
+            <div style="padding: 20px">
+                <h1 style="color: white; font-size: 50pt; text-align: center">Welcome to Erik's bar.</h1>
+            </div>
+            <div style="padding: 20px; margin-left: 50px; margin-right: 50px">
+                <div>
+                    <div class="w3-row" style="margin-bottom: 10px">
+                        <a class="w3-col s4 w3-btn" href="{% url 'allcocktails' %}">
+                            <div style="border: black 8px solid; padding: 15px">
+                                <img src="https://i.ibb.co/tYtn542/cocktail-icon-bw.png" style="width: 70%">
+                                <div style="text-align: center">
+                                    <h1>Recipes</h1>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="w3-col s4 w3-btn" href="{% url 'makedrinks' %}">
+                            <div style="border: black 8px solid; padding: 15px">
+                                <img src="https://i.ibb.co/nCC20hk/shaker-jigger.png" style="width: 100%">
+                                <div style="text-align: center">
+                                    <h1>Make Drinks</h1>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="w3-col s4 w3-btn" style="height: 100%;" href="{% url 'allingredients' %}">
+                            <div style="border: black 8px solid; padding: 15px">
+                                <img src="https://image.flaticon.com/icons/png/512/2907/2907411.png" style="width: 70%">
+                                <div style="text-align: center">
+                                    <h1>Ingredients</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div style="border: black 10px solid; height: 365px">
+                    <div class="w3-row" style="padding: 15px">
+                        <div class="w3-col s6">
+                            <img src="https://www.eatthis.com/wp-content/uploads/2019/03/old-fashioned-cocktail.jpg" style="width: 90%; border-radius: 10px; border: black 8px solid">
+                        </div>
+                        <div class="w3-col s6" style="text-align: center">
+                            <div style="height: 100%; padding: 20px; background-color: white; border-radius: 10px; border: black 8px solid">
+                                <h2>Happy Birthday, Erik.</h2>
+                                <p>posted by annie</p>
+                            </div>
+                            <div style="margin-top: 10px">
+                                <a href="#" class="w3-btn w3-block" style="background-color: black; color: white; border-radius: 5px"><b>View Post</b></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w3-col s4">
+            <div style="padding: 20px; padding-top: 40px">
+                <h1 style="text-align: center">Featured Recipe</h1>
+                <div style="border: black 6px solid; padding: 10px">
+                    <h2>Recipe Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div style="border-bottom: orangered 4px solid">
+            <h1>{{ cocktail.name }}</h1>
+            <h2>Viewing Recipe</h2>
+            <a href="{% url 'newrecipepart' cocktail.pk %}" class="w3-btn w3-blue">Add Part to Recipe</a>
+        </div>
+        <div>
+            <ul>
+                {% for recipe_part in cocktail.recipe_parts.all %}
+                    <li>{{ recipe_part }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

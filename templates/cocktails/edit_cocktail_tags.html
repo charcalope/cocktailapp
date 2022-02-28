@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="border-bottom: orangered 4px solid">
+        <div class="w3-card" style="padding: 15px">
+            <h1>Add New Ingredient Tag to this Recipe Part</h1>
+            <p>{{ recipe_part }}</p>
+            {% for ingredient_tag in recipe_part.tagged_ingredients.all %}
+                <div class="w3-card" style="padding: 15px">
+                    <p>{{ ingredient_tag.name }}</p>
+                    <a href="{% url 'removeparttag' recipe_part.pk ingredient_tag.pk %}" class="w3-btn w3-red">Delete</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <div>
+                <form action="{% url 'editparttags' recipe_part.pk %}" method="GET">
+                    <label for="q">Search</label>
+                    <input id="q" type="text" name="q" value="{{request.GET.q}}" placeholder="Search ingredients">
+                    <input type="submit" name="submit" value="Search">
+                </form>
+            </div>
+            <div>
+                {% if results %}
+                    {% for ingredient in results %}
+                        <div class="w3-card">
+                            <p>{{ ingredient.name }}</p>
+                            <a href="{% url 'addparttag' recipe_part.pk ingredient.pk %}">Add Tag</a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

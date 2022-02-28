@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div style="border-bottom: orangered 4px solid">
+            <h1>Your Cabinet</h1>
+            <a href="{% url 'cabinetsearch' %}" class="w3-btn w3-blue">Add to Cabinet</a>
+        </div>
+        <div>
+            {% for ingredient in cabinet.all %}
+                <div class="w3-card">
+                    <p>{{ ingredient.name }}</p>
+                    <a href="{% url 'deletefromcabinet' ingredient.pk %}" class="w3-btn w3-red">Delete</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
